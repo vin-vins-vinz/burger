@@ -39,6 +39,9 @@ var orm = {
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
 
         connection.query(queryString, vals, function(err, result){
             if (err) {
